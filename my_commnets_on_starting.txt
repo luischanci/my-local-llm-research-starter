@@ -1,0 +1,33 @@
+Starting a new Project:
+
+- Starting a new project then takes one command:
+
+powershell:
+
+robocopy "D:\Research\my-local-llm-research-starter" "D:\Research\NEW_PROJECT" /E
+cd D:\Research\NEW_PROJECT
+git init
+New-Item quality_reports\decision_log.md -ItemType File
+
+
+Then fill in the placeholders in AGENTS.md and README.md, lock Raw_Data against writes (the icacls step from the installation guide), and make the first commit.
+
+
+
+- Notes: Your old prompt asked Claude to read the configuration and adapt it autonomously. Locally, invert that — you write AGENTS.md, the model doesn't.
+
+powershell:
+
+git clone https://github.com/luischanci/my-local-llm-research-starter.git new-project
+cd new-project
+Remove-Item -Recurse -Force .git, .claude
+git init
+
+
+Vs claude kit: Keep the folder skeleton, .gitignore, MEMORY.md, templates. Delete .claude/ entirely, then move the four econometrics skill files into refs/ as plain markdown.
+
+
+Write AGENTS.md yourself — ten minutes, and it is the highest-return ten minutes in the project. Then open OpenCode in Plan mode and ask for something narrow:
+
+"Read AGENTS.md. Then propose a plan for [one specific task].
+Write it to plans/01-name.md. Do not read other files yet."

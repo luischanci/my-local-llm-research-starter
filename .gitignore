@@ -1,0 +1,111 @@
+# ==============================================================================
+# .gitignore — local research kit
+# Principle: track code, documents, reports and small outputs.
+#            Never track data, build clutter, or machine-specific files.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Data: confidential and/or large. Folders are kept via .gitkeep only.
+# ------------------------------------------------------------------------------
+Data_and_Estimation/Data/Raw_Data/*
+!Data_and_Estimation/Data/Raw_Data/.gitkeep
+Data_and_Estimation/Data/Processed_Data/*
+!Data_and_Estimation/Data/Processed_Data/.gitkeep
+
+# Data files anywhere else in the repository
+*.dta
+*.sav
+*.parquet
+*.feather
+*.rds
+*.RData
+*.Rdata
+*.jld2
+*.xlsx
+!Data_and_Estimation/Outcomes/Tables/*.xlsx
+
+# Scratch
+tmp/*
+!tmp/.gitkeep
+
+# Supporting papers: copyrighted and large
+master_supporting_docs/**/*.pdf
+
+# ------------------------------------------------------------------------------
+# Logs: ignore LaTeX/Stata logs everywhere EXCEPT the script logs reports cite
+# ------------------------------------------------------------------------------
+*.log
+!Data_and_Estimation/Outcomes/Logs/*.log
+
+# ------------------------------------------------------------------------------
+# LaTeX build artifacts (the compiled manuscript PDF is tracked)
+# ------------------------------------------------------------------------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+*-blx.bib
+
+# ------------------------------------------------------------------------------
+# R
+# ------------------------------------------------------------------------------
+.Rproj.user/
+.Rhistory
+.Renviron
+renv/library/
+renv/local/
+renv/staging/
+# renv.lock IS tracked
+
+# ------------------------------------------------------------------------------
+# Julia (Project.toml and Manifest.toml ARE tracked)
+# ------------------------------------------------------------------------------
+*.jl.cov
+*.jl.mem
+*.jl.*.cov
+
+# ------------------------------------------------------------------------------
+# Stata
+# ------------------------------------------------------------------------------
+*.smcl
+*.stswp
+
+# ------------------------------------------------------------------------------
+# Python
+# ------------------------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+
+# ------------------------------------------------------------------------------
+# AI agent files (local, machine-specific)
+# ------------------------------------------------------------------------------
+.aider*
+.claude/settings.local.json
+.claude/state/
+
+# ------------------------------------------------------------------------------
+# Editors and operating system
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
